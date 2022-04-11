@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ODI.API.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace ODI.API
         {
 
             services.AddControllers();
+            services.AddService();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ODI.API", Version = "v1" });
@@ -38,11 +40,11 @@ namespace ODI.API
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
+                
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ODI.API v1"));
             }
-
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
             app.UseRouting();
 
             app.UseAuthorization();
