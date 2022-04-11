@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.1.31903.286
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{27989F7B-F996-485B-A499-9D843EA52E1E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C53DE806-2D66-4D6D-9B08-237986A754D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODI.API", "ODI.API\ODI.API.csproj", "{D1B41D4A-3655-4B74-A974-249118692FB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODI.API", "ODI.API\ODI.API.csproj", "{D1B41D4A-3655-4B74-A974-249118692FB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODI.DataLayer", "ODI.DataLayer\ODI.DataLayer.csproj", "{D7989FBA-A1B2-45B8-97F0-2A0359F9B696}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODI.DataLayer", "ODI.DataLayer\ODI.DataLayer.csproj", "{D7989FBA-A1B2-45B8-97F0-2A0359F9B696}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODI.Repository", "ODI.Repository\ODI.Repository.csproj", "{266EDE19-C951-4B5D-A8E6-D1B7CEB2A7AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODI.Repository", "ODI.Repository\ODI.Repository.csproj", "{266EDE19-C951-4B5D-A8E6-D1B7CEB2A7AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODI.Implementation", "ODI.Implementation\ODI.Implementation.csproj", "{DB11808F-6A31-4FB7-A24B-CF0008F6531D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODI.Implementation", "ODI.Implementation\ODI.Implementation.csproj", "{DB11808F-6A31-4FB7-A24B-CF0008F6531D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

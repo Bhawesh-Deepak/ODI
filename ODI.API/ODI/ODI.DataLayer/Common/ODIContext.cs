@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using ODI.DataLayer.UserManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,9 @@ namespace ODI.DataLayer.Common
         {
             optionsBuilder.UseSqlServer(_connectionString);
         }
+        public virtual DbSet<UserDetails> UserDetailss { get; set; }
+        public virtual DbSet<Authenticate> Authenticates { get; set; }
+
 
 
 
