@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ModalPopUp from '../Common/ModalPopUp';
+import Register from './Register';
 
-const Login = () => {
+const Login = (props) => {
+
     return (
         <>
             <div className="login-box">
@@ -47,7 +50,7 @@ const Login = () => {
                     </form>
                     <div className="social-auth-links text-center">
                         <p>- OR -</p>
-                        <a href="#" className="btn btn-block btn-social btn-facebook btn-flat">
+                        <a onClick={() => props.register(true)} className="btn btn-block btn-social btn-facebook btn-flat">
                             <i className='fa fa-user' /> Register new User
                         </a>
                         <a
@@ -59,12 +62,9 @@ const Login = () => {
                     </div>
 
                 </div>
-                {/* /.login-box-body */}
+
             </div>
-            {/* /.login-box */}
-            {/* jQuery 2.1.3 */}
-            {/* Bootstrap 3.3.2 JS */}
-            {/* iCheck */}
+
         </>
 
     );
