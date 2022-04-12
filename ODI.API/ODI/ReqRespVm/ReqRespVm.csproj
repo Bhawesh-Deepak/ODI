@@ -1,14 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\ODI.DataLayer\ODI.DataLayer.csproj" />
     <ProjectReference Include="..\ODI.Implementation\ODI.Implementation.csproj" />
     <ProjectReference Include="..\ODI.Repository\ODI.Repository.csproj" />
   </ItemGroup>
