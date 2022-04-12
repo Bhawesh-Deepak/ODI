@@ -230,9 +230,15 @@ const Register = (props) => {
                             </div>
 
                             <Submitbutton loading={isLoading}></Submitbutton>
+<<<<<<< .mine
                             <button type='button' onClick={() => props.register(false)} className='btn btn-danger'>
                                 <i className='fa fa-lock'> Back To Login</i>
                             </button>
+=======
+
+
+
+>>>>>>> .theirs
                         </Form>
                     </Formik>
 
