@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ODI.API.Helpers;
 using ODI.DataLayer.UserManagement;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace ODI.API.Controllers.UserManagement
 {
+    [EnableCors("AllowOrigin")]
     [Route("api/ODI/[controller]/[action]")]
     [ApiController]
     public class UserRegistrationController : ControllerBase
@@ -22,6 +24,7 @@ namespace ODI.API.Controllers.UserManagement
             _IUserDetailsRepository = userDetailsRepository;
             _IAuthenticateRepository = authenticateRepository;
         }
+       
         [HttpPost]
         [Produces("application/json")]
         [Consumes("application/json")]

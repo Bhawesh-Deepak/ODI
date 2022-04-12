@@ -11,7 +11,7 @@ namespace ODI.DataLayer.Common
         Created = 201,
         Deleted,
         Updated,
-        Success,
+        Success=200,
         DataBaseException,
         CodeException,
         AlreadyExists

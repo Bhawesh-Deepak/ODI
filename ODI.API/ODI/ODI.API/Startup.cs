@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ODI.API.Helpers;
+using ODI.Implementation.GenericImplementation;
+using ODI.Repository.GenericRepository;
 
 namespace ODI.API
 {
@@ -23,6 +25,9 @@ namespace ODI.API
 
             services.AddControllers();
             services.AddService();
+            services.AddCors();
+            services.AddTransient(typeof(IGenericRepository<,>), typeof(Implementation<,>));
+           
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ODI.API", Version = "v1" });
@@ -45,9 +50,11 @@ namespace ODI.API
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
             }
-
+            app.UseCors(option =>
+            {
+                option.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+            });
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
