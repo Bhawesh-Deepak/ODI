@@ -12,7 +12,7 @@ namespace ODI.API.Controllers.Master
 {
     [Route("api/ODI/[controller]/[action]")]
     [ApiController]
-    [EnableCors("AllowOrigin")]
+  
     public class CompanyMasterController : ControllerBase
     {
         private readonly IGenericRepository<CompanyMaster, int> _ICompanyMasterRepository;

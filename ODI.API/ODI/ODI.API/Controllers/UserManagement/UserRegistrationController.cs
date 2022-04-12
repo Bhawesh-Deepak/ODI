@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ODI.API.Controllers.UserManagement
 {
-    [EnableCors("AllowOrigin")]
+  
     [Route("api/ODI/[controller]/[action]")]
     [ApiController]
     public class UserRegistrationController : ControllerBase
