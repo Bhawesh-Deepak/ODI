@@ -1,16 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ODI.API.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ODI.API
 {
@@ -40,11 +34,18 @@ namespace ODI.API
         {
             if (env.IsDevelopment())
             {
-                
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ODI.API v1"));
+                app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+
             }
-            app.UseDeveloperExceptionPage();
-            app.UseSwagger();
+            if (env.IsProduction())
+            {
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ODI.API v1"));
+                app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+            }
+
             app.UseRouting();
 
             app.UseAuthorization();
