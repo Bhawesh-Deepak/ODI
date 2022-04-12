@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ODI.DataLayer.Master;
 using ODI.Repository.GenericRepository;
@@ -11,6 +12,7 @@ namespace ODI.API.Controllers.Master
 {
     [Route("api/ODI/[controller]/[action]")]
     [ApiController]
+    [EnableCors("AllowOrigin")]
     public class CompanyMasterController : ControllerBase
     {
         private readonly IGenericRepository<CompanyMaster, int> _ICompanyMasterRepository;
