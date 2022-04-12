@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using ODI.DataLayer.Master;
 using ODI.DataLayer.UserManagement;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace ODI.DataLayer.Common
         }
         public virtual DbSet<UserDetails> UserDetailss { get; set; }
         public virtual DbSet<Authenticate> Authenticates { get; set; }
+        public virtual DbSet<CompanyMaster> CompanyMasters { get; set; }
+        public virtual DbSet<ClaimHeadMaster> ClaimHeadMasters { get; set; }
 
 
 

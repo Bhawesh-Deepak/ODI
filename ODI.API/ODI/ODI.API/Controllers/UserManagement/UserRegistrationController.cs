@@ -36,13 +36,12 @@ namespace ODI.API.Controllers.UserManagement
                     UserDetailId = userdetail.Entities.FirstOrDefault().Id,
                     UserName = userDetails.UserCode.Trim(),
                     Password = PasswordEncryptor.Instance.Encrypt(userDetails.Password.Trim(), "ODIPASSWORDKEY"),
-                    //userDetails.Password.Trim(),
                     RoleId = 4,
                     DisplayUserName = userDetails.FirstName,
                     ForgetPasswordTime = DateTime.Now,
                 };
                 var authenticateresponse = await _IAuthenticateRepository.CreateEntity(model);
-                return Ok(true);
+                return Ok(authenticateresponse);
 
             }
             catch (Exception ex)
