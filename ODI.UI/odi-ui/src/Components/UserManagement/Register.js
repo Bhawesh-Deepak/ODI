@@ -15,8 +15,8 @@ const initialValues = {
     lastName: '',
     emailId: '',
     mobileNumber: '',
-    companyId: '',
-    claimHeadId: '',
+    companyId: 0,
+    claimHeadId: 0,
     userCode: '',
     isCarporateDebtor: false,
     isAcceptTermCondition: true,
@@ -24,6 +24,14 @@ const initialValues = {
     confirmPassword: ''
 }
 
+const validationScheme = Yup.object({
+    firstName: Yup.string().required("First Name is required."),
+    lastName: Yup.string().required("Last name is required"),
+    userCode: Yup.string().required("User name is required."),
+    password: Yup.string().required("Password is required."),
+    confirmPassword: Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Passwords and Confirm Password do not match !')
+})
 
 
 
@@ -83,7 +91,7 @@ const Register = (props) => {
                     < div className="box-header" >
                         <h3 className="box-title">Register User</h3>
                     </div>
-                    <Formik initialValues={initialValues} onSubmit={HandleSubmit}>
+                    <Formik initialValues={initialValues} validationSchema={validationScheme} onSubmit={HandleSubmit}>
                         <Form>
                             <div className="box-body">
                                 <div className='col-md-6'>
@@ -96,6 +104,9 @@ const Register = (props) => {
                                             name='firstName'
                                             placeholder="First Name"
                                         />
+                                        <ErrorMessage name='firstName'>
+                                            {(msg) => <span style={{ color: 'red' }}>{msg}</span>}
+                                        </ErrorMessage>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>
@@ -108,6 +119,9 @@ const Register = (props) => {
                                             name='lastName'
                                             placeholder="Last Name"
                                         />
+                                        <ErrorMessage name='lastName'>
+                                            {(msg) => <span style={{ color: 'red' }}>{msg}</span>}
+                                        </ErrorMessage>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>
@@ -168,6 +182,9 @@ const Register = (props) => {
                                             name='userCode'
                                             placeholder="User name"
                                         />
+                                        <ErrorMessage name='userCode'>
+                                            {(msg) => <span style={{ color: 'red' }}>{msg}</span>}
+                                        </ErrorMessage>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>
@@ -180,6 +197,9 @@ const Register = (props) => {
                                             placeholder="Password"
                                             name='password'
                                         />
+                                        <ErrorMessage name='password'>
+                                            {(msg) => <span style={{ color: 'red' }}>{msg}</span>}
+                                        </ErrorMessage>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>
@@ -192,6 +212,9 @@ const Register = (props) => {
                                             name='confirmPassword'
                                             placeholder="Confirm Password"
                                         />
+                                        <ErrorMessage name='confirmPassword'>
+                                            {(msg) => <span style={{ color: 'red' }}>{msg}</span>}
+                                        </ErrorMessage>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>
@@ -207,14 +230,7 @@ const Register = (props) => {
                             </div>
 
                             <Submitbutton loading={isLoading}></Submitbutton>
-                            {/* <div className="box-footer">
-                                <button type="submit" className="btn btn-primary">
-                                    Submit
-                                </button>
-                                <button disabled='disabled' class="btn  btn-primary">
-                                    <i class="fa fa-spinner fa-spin"></i>Please wait...
-                                </button>
-                            </div> */}
+
                         </Form>
                     </Formik>
 
