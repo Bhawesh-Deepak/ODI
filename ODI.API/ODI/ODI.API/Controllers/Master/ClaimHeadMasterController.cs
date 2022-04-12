@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ODI.DataLayer.Master;
 using ODI.Repository.GenericRepository;
@@ -11,6 +12,7 @@ namespace ODI.API.Controllers.Master
 {
     [Route("api/ODI/[controller]/[action]")]
     [ApiController]
+   
     public class ClaimHeadMasterController : ControllerBase
     {
         private readonly IGenericRepository<ClaimHeadMaster, int> _IClaimHeadMasterRepository;
@@ -31,6 +33,7 @@ namespace ODI.API.Controllers.Master
         [HttpGet]
         [Produces("application/json")]
         [Consumes("application/json")]
+       
         public async Task<IActionResult> GetClaimHeadMaster()
         {
             var response = await _IClaimHeadMasterRepository.GetAllEntities(x => x.IsActive && !x.IsDeleted);
