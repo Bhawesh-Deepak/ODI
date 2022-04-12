@@ -6,9 +6,9 @@ const Submitbutton = (props) => {
 
             <div className="box-footer">
                 {
-                    !props.loading ? (<button type="submit" className="btn btn-primary">
+                    !props.loading ? (<button type="submit" className="btn btn-primary pull-right">
                         Submit
-                    </button>) : (<button disabled='disabled' class="btn  btn-primary">
+                    </button>) : (<button disabled='disabled' class="btn  btn-primary pull-right">
                         <i class="fa fa-spinner fa-spin"></i>Please wait...
                     </button>)
                 }

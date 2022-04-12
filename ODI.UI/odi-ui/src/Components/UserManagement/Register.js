@@ -60,11 +60,11 @@ const Register = (props) => {
         })
     }
 
-    const HandleSubmit = (values) => {
+    const HandleSubmit = async (values) => {
         console.log(values)
         setisLoading(true)
         debugger
-        axios.post(baseUrl + createUser, values).then(resp => {
+        await axios.post(baseUrl + createUser, values).then(resp => {
             console.log(resp)
             debugger
             toast.success("Thanks for Your registration  !", { position: toast.POSITION.TOP_CENTER })
@@ -230,7 +230,9 @@ const Register = (props) => {
                             </div>
 
                             <Submitbutton loading={isLoading}></Submitbutton>
-
+                            <button type='button' onClick={() => props.register(false)} className='btn btn-danger'>
+                                <i className='fa fa-lock'> Back To Login</i>
+                            </button>
                         </Form>
                     </Formik>
 

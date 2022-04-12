@@ -9,8 +9,13 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Register from './Components/UserManagement/Register';
 
 function App() {
-  const [isLoggged, setIsLogged] = useState(false);
+  const [isLoggged, setIsLogged] = useState(window.localStorage.getItem("isLogged"));
   const [isRegister, setisRegister] = useState(false);
+
+  // useEfffect(() => {
+  //   setIsLogged(window.localStorage.getItem("isLogged"))
+  // }, [])
+
   return (
     <div className="App">
       {isLoggged ? (<>
@@ -18,7 +23,7 @@ function App() {
           <Header></Header>
           <Sidebar></Sidebar>
           <Routes>
-            <Route exact path='/' element={<Dashboard />}></Route>
+            <Route exact path='/Dashboard' element={<Dashboard />}></Route>
           </Routes>
         </Router>
 
