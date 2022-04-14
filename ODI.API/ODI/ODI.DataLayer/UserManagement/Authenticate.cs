@@ -19,7 +19,7 @@ namespace ODI.DataLayer.UserManagement
         public bool IsPasswordExpired { get; set; }
         public bool IsLocked { get; set; }
         public string ForgetPasswordCode { get; set; }
-        public DateTime ForgetPasswordTime { get; set; }
+        public DateTime ? ForgetPasswordTime { get; set; }
      
     }
 }

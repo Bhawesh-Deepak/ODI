@@ -41,7 +41,7 @@ namespace ODI.API.Controllers.UserManagement
                     Password = PasswordEncryptor.Instance.Encrypt(userDetails.Password.Trim(), "ODIPASSWORDKEY"),
                     RoleId = 4,
                     DisplayUserName = userDetails.FirstName,
-                    ForgetPasswordTime = DateTime.Now,
+                     
                 };
                 var authenticateresponse = await _IAuthenticateRepository.CreateEntity(model);
                 return Ok(authenticateresponse);
@@ -50,6 +50,53 @@ namespace ODI.API.Controllers.UserManagement
             catch (Exception ex)
             {
                 return Ok(false);
+
+            }
+        }
+        [HttpGet]
+        [Produces("application/json")]
+        [Consumes("application/json")]
+        public async Task<IActionResult> GetUserDetailById(int Id)
+        {
+            try
+            {
+                 
+                var userdetail = await _IUserDetailsRepository.GetAllEntities(x => x.IsActive && !x.IsDeleted && x.Id == Id);
+                
+                return Ok(userdetail);
+
+            }
+            catch (Exception ex)
+            {
+                string template = $"Controller name {nameof(UserRegistrationController)} action name {nameof(GetUserDetailById)} exception is {ex.Message}";
+                 
+                return Ok(false);
+
+            }
+        }
+        [HttpPost]
+        [Produces("application/json")]
+        [Consumes("application/json")]
+        public async Task<IActionResult> UpdateUserProfile(UserDetails userDetails)
+        {
+            try
+            {
+
+                var userdetail = await _IUserDetailsRepository.GetAllEntities(x => x.IsActive && !x.IsDeleted && x.Id == userDetails.Id);
+                userdetail.Entities.FirstOrDefault().FirstName = userDetails.FirstName;
+                userdetail.Entities.FirstOrDefault().LastName = userDetails.LastName;
+                userdetail.Entities.FirstOrDefault().EmailId = userDetails.EmailId;
+                userdetail.Entities.FirstOrDefault().MobileNumber = userDetails.MobileNumber;
+                userdetail.Entities.FirstOrDefault().isCarporateDebtor = userDetails.isCarporateDebtor;
+                var updateResponse= await _IUserDetailsRepository.UpdateEntity(userdetail.Entities.FirstOrDefault());
+                return Ok(updateResponse);
+
+            }
+            catch (Exception ex)
+            {
+                string template = $"Controller name {nameof(UserRegistrationController)} action name {nameof(GetUserDetailById)} exception is {ex.Message}";
+
+                return Ok(Response.StatusCode);
 
             }
         }
