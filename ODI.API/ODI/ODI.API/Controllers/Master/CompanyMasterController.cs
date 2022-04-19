@@ -60,16 +60,7 @@ namespace ODI.API.Controllers.Master
         [Consumes("application/json")]
         public async Task<IActionResult> UpdateCompanyMaster(CompanyMaster model)
         {
-            var deleteModels = await _ICompanyMasterRepository.GetAllEntities(x => x.Id == model.Id);
-
-            deleteModels.Entities.ToList().ForEach(data => {
-                data.IsActive = false;
-                data.IsDeleted = true;
-            });
-
-            
-            var createResponse = await _ICompanyMasterRepository.UpdateEntity(deleteModels.Entities.FirstOrDefault());
-
+            var createResponse = await _ICompanyMasterRepository.UpdateEntity(model);
             return Ok(createResponse);
 
         }

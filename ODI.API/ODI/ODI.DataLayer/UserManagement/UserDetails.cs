@@ -20,7 +20,17 @@ namespace ODI.DataLayer.UserManagement
         public string MobileNumber { get; set; }
         public bool isCarporateDebtor { get; set; }
         public bool IsAcceptTermCondition { get; set; }
+        public string CustomerId { get; set; }
+        public int? ProjectDetailId { get; set; }
+        public string TowerNumber { get; set; }
+        public string FlatNumber { get; set; }
+        public DateTime? BookingDate { get; set; }
+        public string StatusOfUnit { get; set; }
+        public string TotalCost { get; set; }
+        public string SuperArea { get; set; }
         [NotMapped]
         public string Password { get; set; }
+        
+       
     }
 }
