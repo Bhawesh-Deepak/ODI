@@ -17,4 +17,8 @@
     <ProjectReference Include="..\ODI.Repository\ODI.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Documents\" />
+  </ItemGroup>
+
 </Project>

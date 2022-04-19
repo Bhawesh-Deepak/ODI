@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using ODI.DataLayer.Form;
 using ODI.DataLayer.Master;
 using ODI.DataLayer.UserManagement;
 using System;
@@ -30,6 +31,14 @@ namespace ODI.DataLayer.Common
         public virtual DbSet<Authenticate> Authenticates { get; set; }
         public virtual DbSet<CompanyMaster> CompanyMasters { get; set; }
         public virtual DbSet<ClaimHeadMaster> ClaimHeadMasters { get; set; }
+        public virtual DbSet<FormB> FormBs { get; set; }
+        public virtual DbSet<FormBDocument> FormBDocuments { get; set; }
+        public virtual DbSet<ProjectDetail> ProjectDetails { get; set; }
+        public virtual DbSet<CIRPDetail> CIRPDetails { get; set; }
+        public virtual DbSet<FormCA> FormCAs { get; set; }
+        public virtual DbSet<FormCADocument> FormCADocuments { get; set; }
+        public virtual DbSet<FormCACalculation> FormCACalculations { get; set; }
+        
 
 
 

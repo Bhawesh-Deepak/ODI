@@ -59,17 +59,12 @@ namespace ODI.API.Controllers.Master
         [HttpPost]
         [Produces("application/json")]
         [Consumes("application/json")]
-        public async Task<IActionResult> UpdateClaimHeadMaster(CompanyMaster model)
+        public async Task<IActionResult> UpdateClaimHeadMaster(ClaimHeadMaster model)
         {
-            var deleteModels = await _IClaimHeadMasterRepository.GetAllEntities(x => x.Id == model.Id);
-
-            deleteModels.Entities.ToList().ForEach(data => {
-                data.IsActive = false;
-                data.IsDeleted = true;
-            });
+           
 
 
-            var createResponse = await _IClaimHeadMasterRepository.UpdateEntity(deleteModels.Entities.FirstOrDefault());
+            var createResponse = await _IClaimHeadMasterRepository.UpdateEntity(model);
 
             return Ok(createResponse);
 
